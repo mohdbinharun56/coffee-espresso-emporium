@@ -29,11 +29,11 @@ async function run() {
         const coffeeCollection = db.collection('coffees');
 
         // get all Coffees
-        app.get('/coffee', async (req, res) => {
-            const cursor = coffeeCollection.find();
-            const coffees = cursor.toArray();
-            res.send(coffees);
-        })
+       app.get('/coffee',async(req,res)=>{
+        const cursor = coffeeCollection.find();
+        const coffee = await cursor.toArray();
+        res.send(coffee);
+       })
 
         // get a specific coffee
         app.get('/coffee/:id', async (req, res) => {
